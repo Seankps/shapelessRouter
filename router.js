@@ -1,7 +1,4 @@
 
-/////////////////////////////////// Router begin ///////////////////////////////////////////
-//window.onhashchange = routePage;
-
 $(window).on('load', loadpage);
 
 function loadpage() {
@@ -19,10 +16,9 @@ function routePage() {
 
 function getPageContent(pageHash) { //Has AJAX
 
+    var controller = "Home";
     var queryString = "";
-    var controller = "FormGenerator";
     var action = pageHash.replace("#", "");
-
 
     var pagedata = {};
 
@@ -38,8 +34,10 @@ function getPageContent(pageHash) { //Has AJAX
 
     //debugger;
 
-    if (action.length > 0) {                //AJAX
-        $("#body").html('<p>Loading...</p>');
+    if (action.length > 0) { //AJAX
+
+        //$("#body").html('<p>Loading...</p>');
+        $("#body").html('<p><br /><img src="Content/Loaders/ajax-loader-bigger-lines.gif"></p>');
 
         $.ajax({
             url: url,
@@ -57,7 +55,6 @@ function getPageContent(pageHash) { //Has AJAX
         var jsonString = queryString;
         pagedata = jsonString ? JSON.parse('{"' + jsonString.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
                          function (key, value) { return key === "" ? value : decodeURIComponent(value) }) : {}
-        //debugger;
     };
 
     function getActionStrings() {
@@ -67,7 +64,6 @@ function getPageContent(pageHash) { //Has AJAX
 
         if (queryString) {
             getQueryStrings();
-            //debugger;
         }
 
     };
@@ -76,12 +72,6 @@ function getPageContent(pageHash) { //Has AJAX
         var totalString = action.split('/');
         controller = totalString[0];
         action = totalString[1];
-        //debugger;
-
-        //if (queryString) {
-        //    getQueryStrings();
-        //debugger;
-        //}
 
     };
 
