@@ -1,4 +1,4 @@
-# shapelessRouter
+# Shapeless Router
 simpe JS/Jquery page router
 <ul>
 <li>-a js/jquery based page router</li>
@@ -7,7 +7,7 @@ simpe JS/Jquery page router
 <h3>Basics</h3>
 <p>You direct to certian controllers and actions using URLs containing Hash signs (#)
 The controller or API call should return your HTML page</p>
-<p>The default controller automatically pointed to by the router is "Home", so if you don't add another Controller name before your action name -it will look for your action in the "HomeController" or "home/SimpleAction"</p>
+<p>The default controller automatically pointed to by the router is "Home", so if you don't add another Controller name before your action name -it will look for your action in the "HomeController". For example  "home/SimpleAction"</p>
 ```html
 <a href="#SimpleAction">Simple Action</a>
 ```
